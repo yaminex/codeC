@@ -20,7 +20,9 @@ norme.fr.pdf
 
 Saut de ligne \n dans mid a ajouter  */
 
-int	top(int x)
+int		ft_putchar(char c);
+
+int		top(int x)
 {
 	if (x > 1)
 	{
@@ -31,27 +33,37 @@ int	top(int x)
 				x --;
 			}
 		ft_putchar('\\');
+		ft_putchar('\n');
 	}
+		if (x == 1)
+		{
+			ft_putchar('/');
+			ft_putchar('\n');
+		}
 	else
 		return (0);
 }
 
 int 	mid(int x, int y)
 {
-	while (y > 2 && x > 2)
+	if (x > 0)
 	{
-		ft_putchar('\n');
 		ft_putchar('*');
-		while (x > 2)
+		while (x > 1 && y > 2)
+		{
+			while (x > 2)
 			{
 				ft_putchar(' ');
 				x --;
 			}
-		ft_putchar('*');
-		y --;
-	
+			ft_putchar('*');
+			ft_putchar('\n');
+			y --;
+			x --;
+		}	
 	}
-	return (0);
+	else
+		return (0);
 }
 
 int	bot(int x, int y)
@@ -61,10 +73,12 @@ int	bot(int x, int y)
 		ft_putchar('\\');
 		while (x > 2)
 			{
-				ft_putchar('/');
+				ft_putchar('*');
 				x --;
 			}
-		ft_putchar('\\');
+		ft_putchar('\n');
+		if (x < 1 )	
+			ft_putchar('/');
 	}
 	else
 		return (0);
@@ -74,19 +88,20 @@ int	bot(int x, int y)
 int	ft_generate(int x, int y)
 {
 	char *error;
+	int line;
 
-	x = 4;
-	y = 8;
+	line = y;
 	/*error = "x ou y < 1";*/
 	if (x >= 1 && y >= 1)
 	{
-			
-		if (x > 1 && y > 1)
-		{	
-			mid(x, y);
-			bot(x, y);
+		top(x);	
+		while (line > 2)
+		{
+			mid (x, y);
+			line --;
 		}
-		ft_putchar('/');
+		if (x >= 1 && y > 1)
+			bot(x, y);
 	}	
 	else
 	{

@@ -6,6 +6,6 @@ int	ft_generate();
 
 int	main()
 {
-	ft_generate(5, 8);
+	ft_generate(1, 2);
 	return (0);
 }
