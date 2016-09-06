@@ -35,11 +35,11 @@ int		top(int x)
 		ft_putchar('\\');
 		ft_putchar('\n');
 	}
-		if (x == 1)
-		{
-			ft_putchar('/');
-			ft_putchar('\n');
-		}
+	if (x == 1)
+	{
+		ft_putchar('/');
+		ft_putchar('\n');
+	}
 	else
 		return (0);
 }
